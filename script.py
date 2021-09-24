@@ -25,9 +25,9 @@ github = github.Github(token)
 repo = github.get_repo(os.environ['GITHUB_REPOSITORY'])
 print(os.environ['GITHUB_REPOSITORY'])
 
-# issue = repo.create_issue(
-#     title=title,
-#     body=body,
-#     assignees=assignees,
-#     labels=labels
-# )
+issue = repo.create_issue(
+    title=title,
+    body=body,
+    assignees=assignees,
+    labels=labels
+)
