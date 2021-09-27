@@ -14,8 +14,5 @@ jobs:
       
         # pass user input as arguments
         with:
-          title: Build Failed
-          token: ${{secrets.GITHUB_TOKEN}} # default token in GitHub Workflow
-          assignees: ${{github.actor}} # actor who started the workflow
-          labels: worflow-failed
-          body: Workflow failed for commit ${{github.sha}}
+          tags: schulcloud/schulcloud-server:26.10.4, schulcloud/schulcloud-server:26.10, schulcloud/schulcloud-server:latestBuild Failed
+          labels: org.opencontainers.image.title=schulcloud-server,  org.opencontainers.image.description=HPI Schul-Cloud Core Server, org.opencontainers.image.url=https://github.com/hpi-schul-cloud/schulcloud-server

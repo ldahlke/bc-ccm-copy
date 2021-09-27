@@ -1,31 +1,26 @@
 # every action has a name
-name: Create Issue Action
+name: Copy BC Service To CCM  
 # description
 description: This action creates an issue based on user inputs
 # input parameters to be taken from user
 inputs:
-  title: # name of variable. In action script it will be available in workflow as environment variable with name INPUT_TITLE
-    required: true # required variable possible values are true or false
-    description: Title of the issue
   token: # token variable available in workflow as env var named INPUT_TOKEN
+    description: 'GitHub Token as provided by secrets'
+    default: ${{ github.token }}
     required: true
-    description: Token of the user that creates the issue
-  # available as INPUT_LABELS in github they expect this as list but in yaml we can't pass list
-  # so what we do we will pass the labels value as like this v1,bug,feature
-  # in our action we will split it by ,
-  labels:
+  tags: # List of tags of the Docker image, this action will use the tag with a version containing three digits, like 1.2.3.
+    required: true # required variable possible values are true or false
+    description: Docker image tags
+  labels: # Labels of the Docker image, this action will use Just the image
     required: false
     default: ''
-    description: Labels of the issue
-  # assignees input in github api is just like labels we will do the same for assignees
-  assignees: # available as INPUT_ASSIGNEES
-    required: false
-    description: Assignees of the issue
-    default: '' # default value of variable if not provided
-  body: # body as INPUT_BODY
-    required: false
-    default: ''
-    description: Body of the issue
+    description: Labels of the Docker image
+  target: # Target repository for the "copied" files in the format {organisation}/{reponame}
+    required: true
+    description: Target CCM repository
+outputs:
+  filescopied:
+    description: Number of files copied to target CCM
 
 # definition how we want our action
 runs:
