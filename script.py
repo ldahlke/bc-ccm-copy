@@ -18,6 +18,7 @@ else:
 github = github.Github(token)
 # GITHUB_REPOSITORY is the repo name in owner/name format in Github Workflow
 repo = github.get_repo(os.environ['GITHUB_REPOSITORY'])
+repo.clone()    
 print(os.environ['GITHUB_REPOSITORY'])
 print(version)
 print(tags)
