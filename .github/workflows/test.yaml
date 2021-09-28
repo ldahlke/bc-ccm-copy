@@ -11,6 +11,7 @@ jobs:
         # in our case it would be nashmaniac/create-issue-action@v1.0 where v1.0 is the version of action
         # for now we will give directory path. The directory must contain action.yaml
         uses: ./
+        id: bc-copy-ccm
       
         # pass user input as arguments
         with:
@@ -18,3 +19,6 @@ jobs:
           tags: schulcloud/schulcloud-server:26.10.4, schulcloud/schulcloud-server:26.10, schulcloud/schulcloud-server:latestBuild Failed
           labels: org.opencontainers.image.title=schulcloud-server,  org.opencontainers.image.description=HPI Schul-Cloud Core Server, org.opencontainers.image.url=https://github.com/hpi-schul-cloud/schulcloud-server
           target:  ldahlke/ld-ccm
+      - name: Echo Output
+        run: |
+          echo "Outputs - ${{ steps.bc-copy-ccm.outputs.filescopied }}"
