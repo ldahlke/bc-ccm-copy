@@ -14,5 +14,7 @@ jobs:
       
         # pass user input as arguments
         with:
+          version: 26.10.4
           tags: schulcloud/schulcloud-server:26.10.4, schulcloud/schulcloud-server:26.10, schulcloud/schulcloud-server:latestBuild Failed
           labels: org.opencontainers.image.title=schulcloud-server,  org.opencontainers.image.description=HPI Schul-Cloud Core Server, org.opencontainers.image.url=https://github.com/hpi-schul-cloud/schulcloud-server
+          target:  ldahlke/ld-ccm
