@@ -1,5 +1,5 @@
 name: Test Workflow
-on: push
+on: workflow_dispatch
 jobs:
   first-job:
     runs-on: ubuntu-latest
@@ -12,7 +12,8 @@ jobs:
         # for now we will give directory path. The directory must contain action.yaml
         uses: ./
         id: bc-copy-ccm
-      
+        env:
+          REPOSITORY: ldahlke/schulcloud-server
         # pass user input as arguments
         with:
           version: 26.10.4

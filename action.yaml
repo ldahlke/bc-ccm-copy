@@ -27,10 +27,12 @@ outputs:
 
 # definition how we want our action
 runs:
-  using: docker # we are saying this action will run on docker
-  image: 'Dockerfile' # we will use our own Dockerfile to build an image and run it.
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/bc-copy.sh
+      shell: bash
 
-# for publishing purposes
+      # for publishing purposes
 branding: #generates a logo for our action
   icon: arrow-down #icon of the image
   color: blue # background color of the logo of our action
