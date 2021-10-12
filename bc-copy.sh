@@ -4,7 +4,7 @@ repo=${tmprepo/'/'}
 echo Transfering Ansible folder of service $repo  
 echo "The environment is:"
 echo
-# env
+env
 # pwd
 # cd $RUNNER_TEMP
 # pwd
